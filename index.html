@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Micro:bit</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>Formulario Micro:bit</h2>
+    <form id="microbitForm">
+      <label for="sensor">Sensor:</label>
+      <select id="sensor" name="sensor">
+        <option value="temperatura">Temperatura</option>
+        <option value="luz">Luz</option>
+        <option value="acelerometro">Acelerómetro</option>
+        <option value="magnetometro">Magnetómetro</option>
+        <option value="sonido">Sonido</option>
+      </select>
+
+      <label for="premisa">Premisa o Contexto:</label>
+      <input type="text" id="premisa" name="premisa" placeholder="Describe el ejercicio">
+
+      <label for="nivel">Nivel de Complejidad:</label>
+      <select id="nivel" name="nivel">
+        <option value="facil">Fácil</option>
+        <option value="medio">Medio</option>
+        <option value="dificil">Difícil</option>
+      </select>
+
+      <button type="button" id="connectBtn">Conectar Micro:bit</button>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div id="output">
+      <strong>Mensajes recibidos:</strong><br>
+    </div>
+  </div>
+
+  <script src="js/js.js"></script>
+</body>
+
+</html>
