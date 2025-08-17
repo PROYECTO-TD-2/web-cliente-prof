@@ -4,42 +4,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario Micro:bit</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Micro:bit</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
-<body>
-  <div class="form-container">
-    <h2>Formulario Micro:bit</h2>
-    <form id="microbitForm">
-      <label for="sensor">Sensor:</label>
-      <select id="sensor" name="sensor">
-        <option value="temperatura">Temperatura</option>
-        <option value="luz">Luz</option>
-        <option value="acelerometro">Acelerómetro</option>
-        <option value="magnetometro">Magnetómetro</option>
-        <option value="sonido">Sonido</option>
-      </select>
+<body class="bg-dark text-light">
+  <!-- Encabezado principal -->
+  <header
+    class="navbar navbar-expand-lg navbar-dark bg-dark ps-3 d-flex align-items-center fixed-top border-bottom border-1 border-light">
+    <i class="bi bi-motherboard-fill fs-1 text-primary"></i>
+    <h1 class="ms-2 h4 m-0">Micro:bit</h1>
+  </header>
 
-      <label for="premisa">Premisa o Contexto:</label>
-      <input type="text" id="premisa" name="premisa" placeholder="Describe el ejercicio">
+  <!-- Contenedor con columnas -->
+  <div class="container d-flex gap-2 mt-5 pt-5">
+    <!-- Columna principal -->
+    <main class="col-12 col-lg-6">
+      <article class="card shadow-sm p-4 bg-secondary text-light">
+        <header class="text-center mb-4">
+          <h2 class="mt-2">Crea tu ejercicio educativo</h2>
+          <p class="text-light-50">
+            Crea ejercicios educativos seleccionando un sensor, agregando un contexto y un nivel de dificultad.
+          </p>
+        </header>
+        <form id="microbitForm" class="mb-4">
+          <fieldset class="mb-3 ">
+            <legend class="form-label">Sensor:</legend>
+            <select class="form-select bg-dark text-light border-light" id="sensor" name="sensor">
+              <option value="temperatura">Temperatura</option>
+              <option value="luz">Luz</option>
+              <option value="acelerometro">Acelerómetro</option>
+              <option value="magnetometro">Magnetómetro</option>
+              <option value="sonido">Sonido</option>
+            </select>
+          </fieldset>
 
-      <label for="nivel">Nivel de Complejidad:</label>
-      <select id="nivel" name="nivel">
-        <option value="facil">Fácil</option>
-        <option value="medio">Medio</option>
-        <option value="dificil">Difícil</option>
-      </select>
+          <fieldset class="mb-3 b">
+            <legend class="form-label">Premisa o Contexto:</legend>
+            <textarea class="form-control bg-dark text-light border-light" id="premisa" name="premisa" rows="3"
+              placeholder="Describe el contexto del ejercicio..."></textarea>
+          </fieldset>
 
-      <button type="button" id="connectBtn">Conectar Micro:bit</button>
-      <button type="submit">Enviar</button>
-    </form>
+          <fieldset class="mb-3">
+            <legend class="form-label">Nivel de Complejidad:</legend>
+            <select class="form-select bg-dark text-light border-light" id="nivel" name="nivel">
+              <option value="facil">Fácil</option>
+              <option value="medio">Medio</option>
+              <option value="dificil">Difícil</option>
+            </select>
+          </fieldset>
 
-    <div id="output">
-      <strong>Mensajes recibidos:</strong><br>
-    </div>
+          <footer class="d-flex justify-content-between">
+            <button type="button" class="btn btn-success" id="connectBtn">
+              <i class="bi bi-plug-fill"></i> Conectar Micro:bit
+            </button>
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-send-fill"></i> Enviar
+            </button>
+          </footer>
+        </form>
+      </article>
+    </main>
+
+    <!-- Columna complementaria -->
+    <aside class="col-12 col-lg-6">
+      <div id="output" class="border border-light p-3 rounded bg-dark text-light h-100">
+        <strong>Ejercicio recibido:</strong><br>
+      </div>
+    </aside>
   </div>
 
+  <footer class="text-center py-3 mt-4 bg-dark text-light border-top border-1 border-light">
+    <p class="mb-0">© 2025 MathLab. Todos los derechos reservados.</p>
+  </footer>
   <script src="js/js.js"></script>
 </body>
 
