@@ -9,34 +9,53 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Bootstrap Bundle JS (incluye Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </head>
 
-<body class="bg-dark text-light">
+<body class="bg-body text-light">
+  <!-- Toast container -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+    <div id="microbitToast" class="toast align-items-center border-0 shadow-lg" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-motherboard-fill text-success me-2 fs-5"></i>
+        <strong class="me-auto" id="microbitToastTitle">Micro:bit</strong>
+        <small class="text-muted" id="microbitToastTime">Ahora</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+      </div>
+      <div class="toast-body" id="microbitToastBody">
+        Mensaje dinámico
+      </div>
+    </div>
+  </div>
   <!-- Encabezado principal -->
   <header
-    class="navbar navbar-expand-lg navbar-dark bg-dark ps-3 d-flex align-items-center fixed-top border-bottom border-1 border-light">
-    <i class="bi bi-motherboard-fill fs-1 text-success"></i>
+    class="navbar navbar-expand-lg  bg-primary ps-3 pe-3 d-flex align-items-center fixed-top border-bottom border-1 border-light">
+    <i class="bi bi-motherboard-fill fs-1 text-light"></i>
     <h1 class="ms-2 h4 m-0">Micro:bit</h1>
   </header>
 
   <!-- Contenido principal -->
-  <main class="container-fluid d-grid d-md-flex gap-2 mt-5 pt-5">
+  <main class="container-fluid d-grid d-md-flex gap-2 mt-5 pt-5 mb-2 mb-5 p-5">
 
     <!-- Sección principal con el formulario -->
     <section class="col-12 col-md-6">
-      <article class="card shadow-sm p-4 bg-secondary text-light">
-        <header class="text-center mb-4">
+      <article class="card p-3">
+        <div class="card-title text-center">
           <h2 class="mt-2">Crea tu ejercicio educativo</h2>
-          <p class="text-light-50">
+          <p class="card-text">
             Crea ejercicios educativos seleccionando un sensor, agregando un contexto y un nivel de dificultad.
           </p>
-        </header>
+        </div>
 
         <!-- Formulario -->
-        <form id="microbitForm" class="mb-4">
+        <form id="microbitForm" class="">
           <fieldset class="mb-3">
             <legend class="form-label">Sensor</legend>
-            <select class="form-select bg-dark text-light border-light" id="sensor" name="sensor" required>
+            <select class="form-select " id="sensor" name="sensor" required>
               <option value="" disabled selected>Seleccione un sensor</option>
               <option value="temperatura">Temperatura</option>
               <option value="luz">Luz</option>
@@ -48,13 +67,13 @@
 
           <fieldset class="mb-3">
             <legend class="form-label">Premisa o Contexto</legend>
-            <textarea class="form-control bg-dark text-light border-light" id="premisa" name="premisa" rows="3"
+            <textarea class="form-control" id="premisa" name="premisa" rows="3"
               placeholder="Describe el contexto del ejercicio..." required></textarea>
           </fieldset>
 
           <fieldset class="mb-3">
             <legend class="form-label">Nivel de Complejidad</legend>
-            <select class="form-select bg-dark text-light border-light" id="nivel" name="nivel" required>
+            <select class="form-select" id="nivel" name="nivel" required>
               <option value="" disabled selected>Seleccione un nivel</option>
               <option value="facil">Fácil</option>
               <option value="medio">Medio</option>
@@ -74,20 +93,24 @@
       </article>
     </section>
 
-    <!-- Columna complementaria -->
-    <aside class="col-12 col-md-6">
-      <section id="output" class="border border-light p-3 rounded bg-dark text-light h-100">
-        <h2 class="h5">Ejercicio recibido</h2>
-      </section>
-    </aside>
+    <!-- Columna output -->
+    <section class="col-12 col-md-6">
+      <article class="card h-100 p-3">
+        <div id="loadingSpinner" class="text-center my-3" style="display: none;">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p id="spinnerText" class="mt-2 fw-bold text-primary"></p>
+        </div>
+        <h2 class="h5 text-center mb-3">Ejercicios recibidos</h2>
+        <article id="output"></article>
+      </article>
+    </section>
   </main>
 
   <!-- Pie de página -->
-  <footer class="text-center py-3 mt-4 bg-dark text-light border-top border-1 border-light">
+  <footer class="fixed-bottom text-center py-3 mt-5 bg-primary text-light border-top border-1 border-light">
     <p class="mb-0">© 2025 MathLab. Todos los derechos reservados.</p>
   </footer>
-
-  <script src="js/js.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
