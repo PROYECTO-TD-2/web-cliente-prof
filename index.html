@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="bg-body text-light">
+<body class="bg-body text-light d-flex flex-column min-vh-100">
   <!-- Toast container -->
   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
     <div id="microbitToast" class="toast align-items-center border-0 shadow-lg" role="alert" aria-live="assertive"
@@ -32,25 +32,21 @@
     </div>
   </div>
   <!-- Encabezado principal -->
-  <header
-    class="navbar navbar-expand-lg  bg-primary ps-3 pe-3 d-flex align-items-center fixed-top border-bottom border-1 border-light">
+  <header class="navbar navbar-expand-lg  bg-primary ps-3 pe-3 d-flex align-items-center fixed-top">
     <i class="bi bi-motherboard-fill fs-1 text-light"></i>
-    <h1 class="ms-2 h4 m-0">Micro:bit</h1>
+    <h4 class="ms-2 ">Micro:bit</h4>
   </header>
-
   <!-- Contenido principal -->
-  <main class="container-fluid d-grid d-md-flex gap-2 mt-5 pt-5 mb-2 mb-5 p-5">
-
+  <main class="container-fluid d-grid d-md-flex gap-2 mt-5 p-5">
     <!-- Sección principal con el formulario -->
     <section class="col-12 col-md-6">
-      <article class="card p-3">
+      <article class="card h-100 p-3">
         <div class="card-title text-center">
           <h2 class="mt-2">Crea tu ejercicio educativo</h2>
           <p class="card-text">
             Crea ejercicios educativos seleccionando un sensor, agregando un contexto y un nivel de dificultad.
           </p>
         </div>
-
         <!-- Formulario -->
         <form id="microbitForm" class="">
           <fieldset class="mb-3">
@@ -64,13 +60,11 @@
               <option value="sonido">Sonido</option>
             </select>
           </fieldset>
-
           <fieldset class="mb-3">
             <legend class="form-label">Premisa o Contexto</legend>
             <textarea class="form-control" id="premisa" name="premisa" rows="3"
               placeholder="Describe el contexto del ejercicio..." required></textarea>
           </fieldset>
-
           <fieldset class="mb-3">
             <legend class="form-label">Nivel de Complejidad</legend>
             <select class="form-select" id="nivel" name="nivel" required>
@@ -80,7 +74,6 @@
               <option value="dificil">Difícil</option>
             </select>
           </fieldset>
-
           <div class="d-flex justify-content-between">
             <button type="button" class="btn btn-success" id="connectBtn">
               <i class="bi bi-plug-fill"></i> Conectar Micro:bit
@@ -92,7 +85,6 @@
         </form>
       </article>
     </section>
-
     <!-- Columna output -->
     <section class="col-12 col-md-6">
       <article class="card h-100 p-3">
@@ -105,9 +97,8 @@
       </article>
     </section>
   </main>
-
   <!-- Pie de página -->
-  <footer class="fixed-bottom text-center py-3 mt-5 bg-primary text-light border-top border-1 border-light">
+  <footer class="mt-auto text-center py-3 bg-primary text-light ">
     <p class="mb-0">© 2025 MathLab. Todos los derechos reservados.</p>
   </footer>
   <script type="module" src="js/main.js"></script>
